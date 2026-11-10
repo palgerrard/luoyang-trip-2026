@@ -242,7 +242,12 @@
   .dpane .day-hd .no{flex:0 0 auto;white-space:nowrap}
   .dpane .day-hd .tt{flex:1 1 auto;min-width:0;font-size:14.5px}
   .dpane .day-hd .dd{flex:1 1 100%;margin-left:0;text-align:left;font-size:11.5px;line-height:1.55}
-  .dpane .row{grid-template-columns:58px 1fr;gap:11px;padding:8px 0}
+  .dpane .row{grid-template-columns:58px 1fr;gap:11px;padding-top:8px;padding-bottom:8px}
+  /* 高亮行靠 -20px 负边距做整行出血，横向内边距必须还原回来，
+     否则时间会贴着卡片边缘、还会被左边那条 3px 竖条压住 */
+  .dpane .row.key{padding:10px 20px}
+  .dpane .row.opt{padding:10px 20px}
+  .dpane .row.set{padding:9px 20px 10px}
   .dpane .row .bd{font-size:13.5px}
   @media(min-width:1200px){
     .pvc,.daytabs,.dpane.on{width:calc(100% + 240px);margin-left:-120px}
@@ -342,7 +347,7 @@
       <i>老君山 2217 m</i>
       <i>古墓博物馆</i>
       <i>应天门夜景</i>
-      <i class="ver">v11-10f · 两栏对照 + 银杏机位</i>
+      <i class="ver">v11-10g · 两栏对照 + 银杏机位</i>
     </div>
   </div>
 

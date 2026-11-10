@@ -203,6 +203,45 @@
   .panel > h2:first-child{margin-top:26px}
   .panel > .ft{margin-top:34px}
 
+  /* 方案卡 */
+  .pvc{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:17px 19px 15px;margin:0 0 16px}
+  .pvc .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .pvc .col h4{margin:0 0 6px;font-size:13.5px;font-weight:700;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .pvc .col h4 span{font-weight:400;font-size:11.5px;color:var(--ink3)}
+  .pvc .col p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.68}
+  .pvc .col .rt{margin-top:7px;font-size:11.5px;color:var(--ink3);line-height:1.6}
+  .pvc .when{margin-top:15px;padding-top:14px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.78}
+  .pvc .when b{color:var(--ink)}
+  .vtag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.5px;padding:2px 7px 3px;border-radius:3px;
+    background:var(--accent-soft);color:var(--accent);border:1px solid #e3cbba;white-space:nowrap}
+  .vtag.g{background:#eef3ea;color:#4d6b3e;border-color:#d5e0cb}
+
+  /* 天级 tab */
+  .daytabs{display:flex;gap:6px;margin:24px 0 0;border-bottom:1px solid var(--line);
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .daytabs::-webkit-scrollbar{display:none}
+  .daytabs button{flex:0 0 auto;appearance:none;background:none;border:none;cursor:pointer;font-family:inherit;
+    font-size:14px;font-weight:700;letter-spacing:.2px;color:var(--ink3);padding:9px 15px 11px;line-height:1.3;
+    display:flex;align-items:baseline;gap:8px;border-bottom:2px solid transparent;margin-bottom:-1px;
+    transition:color .15s,border-color .15s}
+  .daytabs button small{font-weight:400;font-size:11px;color:#b0aba2;white-space:nowrap}
+  .daytabs button:hover{color:var(--ink2)}
+  .daytabs button:hover small{color:var(--ink3)}
+  .daytabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+  .daytabs button[aria-selected="true"] small{color:#c08a70}
+  .dpane{display:none}
+  .dpane.on{display:block}
+  .vhd{font-size:13px;font-weight:700;margin:26px 0 11px;line-height:1.55;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .vhd .hint{font-weight:400;font-size:11.5px;color:var(--ink3)}
+  .dpane > .vhd:first-child{margin-top:20px}
+  @media(max-width:640px){
+    .pvc .two{grid-template-columns:1fr;gap:15px}
+    .pvc{padding:15px 15px 13px}
+    .daytabs button{font-size:13px;padding:9px 11px 11px}
+    .daytabs button small{display:none}
+    .vhd{font-size:12.5px;margin:22px 0 10px}
+  }
+
   @media(max-width:640px){
     body{padding:24px 14px 60px;font-size:14px}
     .hd h1{font-size:22px}
@@ -234,7 +273,10 @@
     body{background:#fff;padding:0;font-size:13.5px}
     .hero{break-inside:avoid}
     .tabs{display:none}
+    .daytabs{display:none}
     .panel{display:block!important}
+    .dpane{display:block!important}
+    .vhd{margin-top:20px}
     .day{break-inside:avoid}
     .lane{break-inside:avoid}
     .fig{break-inside:avoid}
@@ -295,7 +337,7 @@
     </div>
     <div class="nd">
       <div class="dl">D1<small>11/13 周五 · 雨</small></div>
-      <div class="dc"><b>白马寺 + 龙门石窟</b><i>·</i>08:55 酒店门口集合，09:00 出发；09:40 白马寺（银杏正当时，<b>1 小时 50 分</b>），<b>12:20 龙门镇午饭（给 1 小时 30 分）</b>，13:55 进龙门石窟，<b>14:35 站到奉先寺</b>，<b>16:50 停车场集合</b>，16:55 发车；<b>19:05 到栾川县城</b>，19:30 吃栾川豆腐和山货。<br><b>⚠️ 出发前要看一眼周五天气</b>：若转好就走「Plan B」——下午上老君山、<b>17:40 看亮灯</b>、照样住栾川（见路线栏）</div>
+      <div class="dc"><b>白马寺 + 龙门石窟</b><i>·</i>08:55 酒店门口集合，09:00 出发；09:40 白马寺（银杏正当时，<b>1 小时 50 分</b>），<b>12:20 龙门镇午饭（给 1 小时 30 分）</b>，13:55 进龙门石窟，<b>14:35 站到奉先寺</b>，<b>16:50 停车场集合</b>，16:55 发车；<b>19:05 到栾川县城</b>，19:30 吃栾川豆腐和山货。<br><b>⚠️ 出发前要看一眼周五天气</b>：若转好就走「方案 B」——下午上老君山、<b>17:40 看亮灯</b>、照样住栾川（见行程栏 DAY 1）</div>
     </div>
     <div class="nd">
       <div class="dl">D2<small>11/14 周六 · 晴</small></div>
@@ -303,7 +345,7 @@
     </div>
     <div class="nd">
       <div class="dl">D3<small>11/15 周日 · 雨</small></div>
-      <div class="dc"><b>城里轻松吃喝</b><i>·</i>08:30 先喝一碗汤，08:55 集合，09:00 出发；09:30 古墓博物馆（2 小时 15 分，<b>一定要请讲解</b>），<b>12:20 老城午饭（1 小时 30 分）</b>，14:45 大运河博物馆（1 小时 30 分），<b>17:00 晚饭</b>，19:00 应天门城楼看中轴线，<b>若当晚有演出等 20:30 那场</b>，21:00 回店收行李。<br><b>这天可以整段换成「少林版」</b>——想补嵩山少林的就走那版（08:30 出发、20:40 回店），二选一，见「D3 二选一」</div>
+      <div class="dc"><b>城里轻松吃喝</b><i>·</i>08:30 先喝一碗汤，08:55 集合，09:00 出发；09:30 古墓博物馆（2 小时 15 分，<b>一定要请讲解</b>），<b>12:20 老城午饭（1 小时 30 分）</b>，14:45 大运河博物馆（1 小时 30 分），<b>17:00 晚饭</b>，19:00 应天门城楼看中轴线，<b>若当晚有演出等 20:30 那场</b>，21:00 回店收行李。<br><b>这天可以整段换成「少林版」</b>——想补嵩山少林的就走那版（08:30 出发、20:40 回店），二选一，见行程栏 <b>DAY 3</b></div>
     </div>
     <div class="nd">
       <div class="dl">D4<small>11/16 周一</small></div>
@@ -512,7 +554,7 @@
   </div>
 
   <h2>少林寺 <em>默认不去，但 D3 可以整个换成它</em></h2>
-  <p class="lead">先说结论：<b>它想给你的四样东西，我们这几天都已经有了</b>——所以默认不排。<b>但如果全队最想要的是那 30 分钟功夫表演（这是唯一没有平替的），D3 可以整个换掉</b>，时刻表在下一节。</p>
+  <p class="lead">先说结论：<b>它想给你的四样东西，我们这几天都已经有了</b>——所以默认不排。<b>但如果全队最想要的是那 30 分钟功夫表演（这是唯一没有平替的），D3 可以整个换掉</b>，逐时时刻表在「行程」栏的 <b>DAY 3</b> 里。</p>
 
   <h3>四条平替 <em>它给的东西，别处都有</em></h3>
   <table>
@@ -586,198 +628,29 @@
   </table>
   <p class="lead"><b>所以真正累的不是「两座山」，是「一座要靠腿爬 6 小时的山」。</b>这也正好说明：<b>「周五老君山 + 周日嵩山主峰」在体力上同样不成立</b>——峻极峰那个强度，隔一天也缓不过来，而且第二天还要 04:45 起床赶飞机。<b>能两天都爬的，只有「索道山 + 平地寺」这个组合。</b></p>
 
-  <h2>Plan B · 周五看点灯 <em>不是备胎，是天气好时更优的一版</em></h2>
-  <p class="lead">群里想要的那件事——<b>老君山的灯</b>——默认版看不到，因为 14:45 就下撤了。<b>但如果周五（11/13）天气真的转好，这一版比默认版更好</b>：周五是工作日、人更少；下午才上山，正好避开上午的团队高峰；17:40 亮灯；<b>晚上照样住栾川</b>，不用赶夜路回洛阳。<br><b>它不是「赌」，是「先看牌再决定」</b>——周四晚和周五早各看一次，不满足就走默认版，一分钱不损失。</p>
+  <h2>逐日时间轴 <em>D1 / D2 各两种走法 · D3 二选一 · D0 和 D4 固定</em></h2>
 
-  <h3>触发条件 <em>三个全满足才走，缺一个就走默认版</em></h3>
-  <table>
-    <tr><th style="width:22%">什么时候看</th><th style="width:26%">看什么</th><th>怎么判</th></tr>
-    <tr><td><b>11/12 周四 22:30</b><span class="hint">　到酒店后</span></td><td>「老君山风景名胜区」公众号或天气 App 的<b>栾川/景区预报</b></td><td><b>周五降雨概率 ≤ 30%，且不是「阴有雾」</b> → 初判走 B。周五还是雨 → 直接回默认版，不用再看</td></tr>
-    <tr><td><b>11/13 周五 07:00</b><span class="hint">　起床时</span></td><td><b>金顶的实时直播</b>（抖音搜「老君山」，景区官方号有金顶的慢直播）+ 中央气象台卫星云图</td><td><b>直播里能看到山脊和远处的山</b> → 敲定 B。<b>画面是一片白/灰</b> → 立刻回默认版，改去白马寺和龙门</td></tr>
-    <tr class="sum"><td><b>11/13 周五 09:00</b><span class="hint">　发车前</span></td><td>全队一句话确认</td><td>接受<b>「白马寺少 30 分钟 + 龙门挪到周六」</b>这两条代价 → 发车去白马寺（B 版）；不接受 → 按默认版走</td></tr>
-  </table>
-  <div class="call">
-    <b>为什么必须看「直播」而不只是看预报：</b>预报说的是「栾川县城」或「景区平均」，<b>而雾是局地的</b>——县城能见度 500 米，金顶可能什么都看不见，反过来也有。金顶的慢直播是唯一能直接看到「山上现在什么样」的东西。<b>这是这套预案里最值钱的一条，别省这 3 分钟。</b>
+  <div class="pvc">
+    <div class="two">
+      <div class="col">
+        <h4><span class="vtag">方案 A</span>按预报走<span>　默认，周五有雨</span></h4>
+        <p>周五在城里看白马寺和龙门，傍晚转场栾川；<b>周六（预报里唯一的晴天）整天给老君山</b>，14:45 下撤、回洛阳吃水席。</p>
+        <div class="rt">D1 白马寺 + 龙门 → <b>19:05</b> 住栾川<br>D2 老君山全天（山上 4 小时 10 分）→ <b>19:15</b> 水席</div>
+      </div>
+      <div class="col">
+        <h4><span class="vtag g">方案 B</span>天气转好才走<span>　条件触发</span></h4>
+        <p>周五白马寺之后直接上老君山，<b>傍晚等 17:40 的亮灯</b>，看完住栾川、不用赶夜路；<b>龙门顺延到周六上午</b>——上午反而是顺光，脸是亮的。</p>
+        <div class="rt">D1 白马寺 → 下午上山 → 看灯 → <b>20:15</b> 住栾川<br>D2 栾川直接去龙门（<b>11:25</b> 进园）→ <b>18:45</b> 水席</div>
+      </div>
+    </div>
+    <div class="when">
+      <b>什么时候走 B：</b>① <b>周四 11/12 22:30</b> 到酒店后看栾川预报——周五<b>降雨 ≤30%，且不是「阴有雾」</b>；② <b>周五 07:00 起床看金顶实时直播</b>（抖音搜「老君山」，景区官方号有慢直播），<b>画面里能看到山脊和远处的山</b>；③ <b>09:00 发车前全队确认</b>接受「白马寺少 30 分钟」。<br>
+      <b>三条全满足 → 走 B；缺一条 → 走 A</b>，一分钱不损失。<br>
+      <span class="hint">为什么第 ② 条只能看直播、不能只看预报：<b>雾是局地的</b>——县城能见度 500 米，金顶可能什么都看不见，反过来也有。预报给不了这个答案。</span>
+    </div>
   </div>
 
-  <h3>D1 换成这样 <em>白马寺 → 栾川 → 下午上山 → 等亮灯</em></h3>
-  <table>
-    <tr><th class="num" style="width:13%">时间</th><th style="width:28%">做什么</th><th>说明</th></tr>
-    <tr><td class="num">08:45</td><td>起床 · 酒店早饭</td><td>和默认版一样，不早起</td></tr>
-    <tr><td class="num"><b>08:55</b></td><td><b>集合 · 酒店门口</b></td><td>发冰爪雨衣、确认门票身份证</td></tr>
-    <tr><td class="num">09:00</td><td>发车 → 白马寺</td><td>21.2 km / 28 分钟 + 2</td></tr>
-    <tr><td class="num">09:30</td><td>到白马寺停车场</td><td>预留 10 分钟</td></tr>
-    <tr><td class="num">09:40</td><td><b>白马寺 · 1 小时 20 分</b></td><td><b>比默认版少 30 分钟</b>：走主线山门 → 天王殿 → 大雄殿 → 千佛殿 → 齐云塔院，<b>这次跳过国际佛殿区</b>（留到下次）</td></tr>
-    <tr><td class="num">10:40</td><td>银杏</td><td>大雄殿前两株 + 齐云塔院塔前几株</td></tr>
-    <tr><td class="num"><b>11:00</b></td><td><b>集合 · 白马寺停车场</b></td><td>11:10 发车</td></tr>
-    <tr><td class="num">11:10</td><td>发车 → 栾川县城</td><td><b>175.9 km / 2 小时 16 + 8 分钟容错</b>，过路费 83 元。走二广高速 → 宁洛 → 洛栾</td></tr>
-    <tr><td class="num">13:35</td><td><b>午饭 · 栾川县城 · 1 小时 15 分</b></td><td><b>提前给饭馆打电话说 13:35 到、14:50 要走</b>，让厨房先备。酸浆豆腐 / 山野菜炖腊肉 / 伏牛山菌炖鸡</td></tr>
-    <tr><td class="num">14:50</td><td>发车 → 云景索道下站</td><td>11.7 km / 22 分钟 + 3。导航搜「老君山云景索道」，别搜「老君山景区」</td></tr>
-    <tr><td class="num">15:15</td><td>到下站</td><td>预留 25 分钟：停车、厕所、换票、发冰爪、穿羽绒</td></tr>
-    <tr><td class="num">15:40</td><td>一级索道 · 云景 · ¥130</td><td>下午上山，<b>这个点基本不用排队</b>——团队客上午就上完了</td></tr>
-    <tr><td class="num">16:10</td><td>中天门 1800 m</td><td><b>直接换乘，不吃饭</b>（山下刚吃过午饭）</td></tr>
-    <tr><td class="num">16:25</td><td>峰林索道 · 二级 · ¥80</td><td>10 分钟</td></tr>
-    <tr><td class="num">16:40</td><td><b>十里画屏 · 40 分钟</b></td><td>下午的斜光，红叶带比上午更透。默认版是 50 分钟，这里压 10 分钟</td></tr>
-    <tr><td class="num">17:20</td><td>马鬃岭 2217 m · 10 分钟</td><td>别久留，风大</td></tr>
-    <tr><td class="num">17:30</td><td>金顶道观群 · <b>占好位置</b></td><td>亮灯前 10 分钟到位。玉皇顶台阶上视野最好</td></tr>
-    <tr><td class="num"><b>17:40</b></td><td><b>亮灯 · 45 分钟</b></td><td><b>冬季亮灯约 17:40–18:20</b>（随日落微调，11 月中旬洛阳日落约 17:25）。金瓦一圈圈亮起来，加上蓝调的天，<b>这是全天最值钱的 45 分钟</b></td></tr>
-    <tr><td class="num"><b>18:25</b></td><td><b>集合 · 金顶 · 下撤</b></td><td><b>天黑下台阶，头灯或手机手电必须开</b>。金顶 → 峰林索道 25 分钟</td></tr>
-    <tr><td class="num">18:50</td><td>峰林索道上站 · 下行 8 分钟</td><td>—</td></tr>
-    <tr><td class="num">19:00</td><td>中天门</td><td>—</td></tr>
-    <tr><td class="num">19:10</td><td>云景索道下行 · 22 分钟</td><td><b>官方口径下行末班 20:30</b>，我们早了 1 小时 20 分，不用慌</td></tr>
-    <tr><td class="num">19:35</td><td>到停车场</td><td>还冰爪、换鞋</td></tr>
-    <tr><td class="num">20:15</td><td>栾川县城 · 入住</td><td><b>和默认版同一家，不用改订单</b></td></tr>
-    <tr><td class="num">20:30</td><td>晚饭 · 栾川 · 1 小时 15 分</td><td>比默认版晚 1 小时。<b>周五晚上不赶，可以慢慢吃</b></td></tr>
-  </table>
-
-  <h3>D2 跟着换 <em>栾川 → 龙门（上午）→ 回洛阳 → 水席</em></h3>
-  <table>
-    <tr><th class="num" style="width:13%">时间</th><th style="width:28%">做什么</th><th>说明</th></tr>
-    <tr><td class="num">08:00</td><td>起床 · 县城早饭</td><td>昨晚 21:45 才吃完，睡够 7 小时</td></tr>
-    <tr><td class="num"><b>08:50</b></td><td><b>集合 · 酒店门口</b></td><td>行李上车，今天回洛阳</td></tr>
-    <tr><td class="num">09:00</td><td>发车 → 龙门石窟</td><td><b>147.2 km / 2 小时 04 + 8 分钟容错</b>，过路费 63 元。<b>比回老城还近 3 km</b>——龙门在西南，和栾川同一个方向</td></tr>
-    <tr><td class="num">11:12</td><td>到龙门西北服务区</td><td>预留 10 分钟</td></tr>
-    <tr><td class="num">11:25</td><td><b>龙门石窟 · 2 小时 55 分</b></td><td>¥90。<b>先直奔奉先寺</b>——上午的顺光只剩不到一小时</td></tr>
-    <tr><td class="num">12:05</td><td><b>奉先寺</b></td><td><b>正面朝东，上午是顺光，卢舍那的脸是亮的</b>；13:00 之后转背光。所以这一版<b>在光照上比默认版强</b>（默认版 14:35 到，已经是侧逆光）</td></tr>
-    <tr><td class="num">12:35</td><td>回头补西山</td><td>万佛洞、莲花洞、古阳洞</td></tr>
-    <tr><td class="num">13:40</td><td>过伊河桥 · 东山回望</td><td>隔河拍西山全景，这个机位全天都能拍</td></tr>
-    <tr><td class="num"><b>14:20</b></td><td><b>集合 · 龙门停车场</b></td><td>礼佛台走到龙门桥出口 15 分钟 + 8 人缓冲 40 分钟</td></tr>
-    <tr><td class="num">14:30</td><td><b>午饭 · 龙门镇 · 1 小时 30 分</b></td><td>景区门口一条街，浆面条、烫面角、蒜泥白肉。<b>这顿是正餐，给足 1.5 小时</b></td></tr>
-    <tr><td class="num">16:00</td><td>发车 → 洛阳老城</td><td>15 km / 30 分钟</td></tr>
-    <tr><td class="num">16:35</td><td>到老城 · 卸行李、休整</td><td><b>这天空出两小时</b>——默认版是没有的，可以用它睡一觉或者逛十字街</td></tr>
-    <tr><td class="num"><b>18:30</b></td><td><b>集合 · 酒店大堂</b></td><td>步行去饭馆 5–10 分钟</td></tr>
-    <tr><td class="num">18:45</td><td><b>洛阳水席 · 24 道 · 1 小时 30 分</b></td><td><b>比默认版早 30 分钟</b>（默认版 19:15）——因为今天下午回得早。订位时说 18:45 到</td></tr>
-    <tr><td class="num">20:15</td><td>回酒店</td><td>老城酒店步行 10 分钟</td></tr>
-  </table>
-
-  <h3>和默认版差在哪 <em>一增一减，都不大</em></h3>
-  <table>
-    <tr><th style="width:20%">比什么</th><th style="width:38%">默认版<span class="hint"><br>周六上老君山</span></th><th>Plan B<span class="hint"><br>周五看灯</span></th></tr>
-    <tr><td><b>白马寺</b></td><td>1 小时 50 分<span class="hint">　含国际佛殿区</span></td><td><b>1 小时 20 分</b>，跳过国际佛殿区</td></tr>
-    <tr><td><b>龙门石窟</b></td><td>周五 13:55 进园<span class="hint">　侧逆光</span></td><td><b>周六 11:25 进园</b>——<b>上午顺光，脸是亮的</b>；但周六人多</td></tr>
-    <tr><td><b>老君山上待多久</b></td><td><b>4 小时 10 分</b>（12:05–16:15）</td><td><b>3 小时</b>（15:40–18:50）</td></tr>
-    <tr><td><b>点灯</b></td><td><b>看不到</b></td><td><b>17:40–18:25，45 分钟</b></td></tr>
-    <tr><td><b>山上人流</b></td><td>周六，<b>这周最多的一天</b><span class="hint">　靠住栾川错峰</span></td><td><b>周五工作日 + 下午</b>，团队客上午就上完了，<b>索道基本不排队</b></td></tr>
-    <tr><td><b>D1 到栾川</b></td><td class="num">19:05</td><td class="num">20:15</td></tr>
-    <tr class="sum"><td><b>净结论</b></td><td>内容密、时间松、不看灯</td><td><b>换 30 分钟白马寺 + 龙门挪一天，换一次点灯 + 更少的山上人流</b></td></tr>
-  </table>
-
-  <div class="call">
-    <b>走 Plan B 必须注意的四件事：</b><br>
-    ① <b>带头灯或保证手机有电</b>——17:25 就日落，18:25 下撤时金顶到峰林索道那 25 分钟台阶是全黑的，山上没有路灯；<br>
-    ② <b>下午风大，云景索道可能临时停运</b>——<b>一级索道中灵和云景票是通用的</b>，云景停了直接去中灵，别在原地看着队伍发呆；<br>
-    ③ <b>亮灯时间是「约」17:40</b>，随日落前后浮动 10–15 分钟，别掐太死；<br>
-    ④ <b>山上零下、夜间风 5–7 级</b>——等灯那 45 分钟比白天冷一档，羽绒、帽子、手套全穿上，<b>暖宝宝给每个人发两片</b>。
-  </div>
-
-  <h2>D3 二选一 <em>博物馆版 · 少林版</em></h2>
-  <p class="lead">D3 是唯一可以整段替换的一天——<b>住宿不动、机票不动、前两天的票不动</b>，只换 11/15 这一天的内容。<b>两版都能装进 08:00–21:00</b>，选择的依据只有一条：<b>全队有多想要那 30 分钟功夫表演。</b></p>
-
-  <table>
-    <tr><th style="width:20%"></th><th style="width:40%">博物馆版<span class="hint">　现在这版</span></th><th>少林版</th></tr>
-    <tr><td><b>车程</b></td><td>36 km · 在车约 1 小时</td><td><b>120 km · 在车约 3 小时</b>（G310 国道，31 个红绿灯，无过路费）</td></tr>
-    <tr><td><b>看什么</b></td><td>古墓博物馆（地下 7 米、25 座真实墓葬）+ 大运河博物馆（两艘古沉船）+ 老城</td><td>少林常住院 + 塔林（240 余座，中国现存最大）+ 武术表演 + 天王殿前 1500 年银杏</td></tr>
-    <tr><td><b>门票</b></td><td>两个馆都免费</td><td><b>¥80/人</b>（含常住院、塔林、初祖庵），8 人 ¥640</td></tr>
-    <tr><td><b>天气要求</b></td><td><b>怕雨不怕晒</b>——全在地下和室内，雨 50% 正好</td><td><b>雨中可看</b>——殿宇、塔林、银杏都在檐下或树下，比博物馆受影响稍大</td></tr>
-    <tr><td><b>要放弃</b></td><td>少林寺（这趟不去）</td><td><b>古墓博物馆 + 大运河博物馆全砍</b>——洛博闭馆后挑的两个替代项</td></tr>
-    <tr><td><b>体力</b></td><td>全天步行约 2 小时，站得多</td><td>步行 3 小时 40 分，<b>但基本平地</b></td></tr>
-    <tr class="sum"><td><b>一句话</b></td><td>雨天的最优解，内容更密、更省体力</td><td>把「来都来了」的嵩山补上，代价是砍掉两个馆、多 2 小时车</td></tr>
-  </table>
-
-  <h3>少林版时刻表 <em>08:30 出发 · 20:40 回店</em></h3>
-  <table>
-    <tr><th class="num" style="width:13%">时间</th><th style="width:28%">做什么</th><th>说明</th></tr>
-    <tr><td class="num">07:30</td><td>起床 · 酒店早饭</td><td>比博物馆版早 40 分钟。行李不用动</td></tr>
-    <tr><td class="num"><b>08:25</b></td><td><b>集合 · 酒店门口</b></td><td><b>带身份证</b>，少林景区要刷证进</td></tr>
-    <tr><td class="num">08:30</td><td>发车 → 登封</td><td><b>60.2 km / 1 小时 33 + 8 分钟容错</b>，G310 国道，31 个红绿灯</td></tr>
-    <tr><td class="num">10:10</td><td>到少林停车场</td><td>预留 15 分钟：停车、厕所、换票、8 个人验身份证</td></tr>
-    <tr><td class="num">10:25</td><td><b>少林景区 · 4 小时 20 分</b></td><td>¥80。动线：<b>武术表演 → 常住院 → 午饭 → 塔林 → 银杏</b></td></tr>
-    <tr><td class="num"><b>11:00</b></td><td><b>武术表演 · 30 分钟</b></td><td><b>先看这个，别先逛。</b>演武厅按场次开（整点为主，每天不同）——错过就得等下一场，正好把后面的全挤掉</td></tr>
-    <tr><td class="num">11:40</td><td>常住院 · 1 小时</td><td>天王殿 → 大雄宝殿 → 藏经阁 → 方丈室 → 立雪亭 → 千佛殿。<b>千佛殿的明代壁画和地上 48 个脚坑是硬货</b></td></tr>
-    <tr><td class="num">12:40</td><td>午饭 · 少林素斋 · 40 分钟</td><td>园内吃，省一趟进出。<b>这顿吃轻的</b>——晚上回洛阳还有一顿</td></tr>
-    <tr><td class="num">13:20</td><td>塔林 · 40 分钟</td><td>240 余座，唐到清的历代高僧墓塔，<b>中国现存最大塔林</b>。不用讲解也看得出朝代——塔的层数和形状就是朝代</td></tr>
-    <tr><td class="num">14:00</td><td>银杏 · 15 分钟</td><td>天王殿前那棵 1500 年古银杏。<b>11/15 还在不在，要看 11/13 那场雨</b>——雨大就会被打落一半</td></tr>
-    <tr><td class="num"><b>14:45</b></td><td><b>集合 · 景区出口</b></td><td>走回停车场留 40 分钟（8 人缓冲）</td></tr>
-    <tr><td class="num">15:25</td><td>发车 · 回洛阳</td><td>60.2 km / 1 小时 33 + 8</td></tr>
-    <tr><td class="num">17:05</td><td>到老城 · 休整 55 分钟</td><td>回酒店洗把脸。<b>这一小时是这天唯一的缓冲，别拿去安排别的事</b></td></tr>
-    <tr><td class="num"><b>18:00</b></td><td><b>集合 · 酒店大堂</b></td><td>去吃晚饭</td></tr>
-    <tr><td class="num">18:10</td><td>晚饭 · 老城 · 1 小时 30 分</td><td><b>不吃水席</b>（水席 D2 已经吃过），这天吃不翻汤或浆面条，吃轻一点</td></tr>
-    <tr><td class="num">19:40</td><td>打车 → 应天门</td><td>4.8 km / 11 分钟</td></tr>
-    <tr><td class="num">20:00</td><td>应天门城楼 · 40 分钟</td><td><b>比博物馆版晚 1 小时，所以只上城楼看中轴线，不等演出</b></td></tr>
-    <tr><td class="num">20:40</td><td>回酒店 · 收行李</td><td>明天 <b>04:45</b> 起、05:25 走</td></tr>
-  </table>
-
-  <div class="call">
-    <b>走少林版必须提前办的三件事：</b><br>
-    ① <b>门票提前买</b>（「少林景区」公众号或携程，¥80/人）——8 个人现场买票排队 20 分钟起；<br>
-    ② <b>查当天的武术表演场次表</b>——演武厅不是随到随演，<b>11:00 那一场是整个 D3 的支点</b>，没有就整段后移 30–60 分钟；<br>
-    ③ <b>把古墓博物馆的预约退掉</b>（每日 0 点放票，8 人团的位子占着不放会影响别人），别两头都挂着。
-  </div>
-
-  <h2>为什么周五非要住到栾川 <em>这不是选择，是唯一解</em></h2>
-  <p class="lead">这个安排值得单独解释一次，因为它看起来像是在「多赶一段路」，实际是被距离逼出来的。<b>洛阳老城到云景索道下站 154.3 km / 2 小时 09 / 过路费 63 元</b>——比很多人以为的「洛阳到栾川一个多小时」要远得多，因为后半程是 30 余座隧道的山区高速。</p>
-  <table>
-    <tr><th style="width:110px"></th><th>现在这样　周五住栾川</th><th>如果改成　周五住洛阳、周六往返</th></tr>
-    <tr><td><b>周六出发</b></td><td>09:00，县城到索道 <b>11.7 km</b></td><td>09:00，市区到索道 <b>154.3 km</b></td></tr>
-    <tr><td><b>到索道下站</b></td><td><b>09:25</b>（含停车、买票、发冰爪）</td><td>11:09</td></tr>
-    <tr><td><b>到中天门</b></td><td><b>10:10</b></td><td>11:50 前后（还要排队）</td></tr>
-    <tr><td><b>山上可用时间</b></td><td><b>4 小时 10 分</b></td><td><b>不到 2 小时</b></td></tr>
-    <tr><td><b>回洛阳</b></td><td>16:15 发车，18:45 到</td><td>16:15 发车，18:24 到</td></tr>
-    <tr class="sum"><td><b>结果</b></td><td>十里画屏 + 马鬃岭 + 金顶，还能坐下吃饭</td><td><b>老君山基本废掉</b>，只能金顶打卡就撤</td></tr>
-  </table>
-  <div class="call">
-    <b>所以：住栾川不是「为了错峰」的加分项，是「不然来不及」的必选项。</b>单程 154 km、来回 5 小时的盘山高速，在 09:00 出发这个前提下，当天往返不可能。
-  </div>
-
-  <h3>那「错峰」这个说法还成立吗 <em>成立，但错的是另一批人</em></h3>
-  <p class="lead">你担心周六人多，这个判断对，但要看清是哪些人多。<b>老君山最大的客流来源是洛阳一日游直通车</b>——市区 09:00 和 10:00 各发一班，车程 2 小时，<b>也就是上午 11:00 和 12:00 才到景区门口</b>。这一批人正是索道排队的主力，因为他们是团队客、要一起上。</p>
-  <table>
-    <tr><th style="width:190px">谁</th><th class="num" style="width:130px">到索道的时间</th><th>和你们的关系</th></tr>
-    <tr><td><b>你们</b><span class="hint">　周五已住栾川</span></td><td><b>09:25</b><span class="hint"> 到下站 · 09:50 上索道</span></td><td>—</td></tr>
-    <tr><td>自驾散客 / 景区内住宿客</td><td class="num">08:00–09:30</td><td>和你们重叠，但量不大，队伍走得动</td></tr>
-    <tr><td><b>洛阳直通车　第一批</b></td><td class="num">约 11:00</td><td>市区 <b>09:00</b> 发车、车程 2 小时。<b>比你们晚 1 小时 10 分</b>——他们上索道的时候，你们已经在十里画屏了</td></tr>
-    <tr><td><b>洛阳直通车　第二批</b></td><td class="num">约 12:00</td><td>市区 <b>10:00</b> 发车。比你们晚 2 小时 10 分</td></tr>
-  </table>
-  <div class="call">
-    <b>所以「住栾川 = 错峰」是成立的，只是错开的对象是团队客，不是所有人。</b>你们 09:50 上索道、10:35 进十里画屏、14:45 才开始下撤——<b>整段行程走在大巴团前面一个身位</b>，下午那批人正往金顶上挤的时候，你们已经在金顶上把光等到了。<br><b>反过来说清楚一件事：</b>住栾川能拿到的最大红利，其实是<b>「8:00 索道一开就上去」</b>——08:00 从县城走、08:22 到下站、08:50 到中天门，比现在早 1 小时 20 分，而且几乎零排队。<b>9 点出发等于主动放弃了这一档</b>。这个取舍你已经选了，这里只是把代价写明白：不是「挤」，是「少一个多小时」。
-  </div>
-
-  <h2>8 个人的节奏 <em>每一段之间到底留了多少</em></h2>
-  <p class="lead">之前那版是按「一个人」算的——到了就走、看完就上车、吃完就进园。<b>8 个人的真实节奏完全是另一回事</b>：一辆车要清两次人数，一个厕所要排八次，一张合影要等八个人站好。下面三条是换算规则，<b>三天的每个时间点都是按这三条排的</b>。</p>
-
-  <table>
-    <tr><th style="width:30%">一个动作</th><th class="num" style="width:14%">一个人</th><th class="num" style="width:16%">8 个人</th><th>为什么差这么多</th></tr>
-    <tr><td><b>上下车</b></td><td class="num">1 分钟</td><td class="num"><b>5 分钟</b></td><td>清点人数、有人还在拍照、有人临时要去厕所</td></tr>
-    <tr><td><b>景区出口 → 停车场</b></td><td class="num">10 分钟</td><td class="num"><b>40 分钟</b></td><td>队伍会拉长，前队要等后队；<b>出口那条商店街是最大的时间黑洞</b></td></tr>
-    <tr><td><b>检票进园（含买票）</b></td><td class="num">3 分钟</td><td class="num"><b>10–25 分钟</b></td><td>票在谁手上、谁没带身份证、谁会临时要去厕所</td></tr>
-    <tr><td><b>吃一顿正餐</b></td><td class="num">40 分钟</td><td class="num"><b>1 小时 30 分</b></td><td>点菜 10 + 上菜 20 + 吃 40 + 结账分账 15 —— <b>这是底线，不是宽裕</b></td></tr>
-    <tr class="sum"><td><b>每一段车程</b></td><td class="num">实测值</td><td class="num"><b>+ 3~8 分钟</b></td><td>加油、路口排队、司机找停车位</td></tr>
-  </table>
-
-  <div class="call">
-    <b>按这三条重排之后，三天的结束时间整体推后了 15–45 分钟。</b>这不是变慢了，是把原来「来不及」的那部分补上了：D1 到栾川 18:40 → <b>19:05</b>，D2 回店 20:15 → <b>21:00</b>，D3 回店 20:30 → <b>21:00</b>（当晚没有演出的话是 20:20）。<br><b>其中 D2 那 45 分钟不一样</b>——它不是缓冲，是<b>故意加在山顶的</b>：金顶自由活动从 15 分钟延长到 1 小时 15 分。周六是这一周唯一的晴天，下午 13:30–14:45 的光线是全程最好的一段，把这段时间花在路上才是浪费。<br><b>代价是每天晚结束 15–45 分钟，换来的是全程没有一段需要小跑。</b>
-  </div>
-
-  <h2>12 个集合点 <em>迟到 5 分钟，全队等 5 分钟</em></h2>
-  <p class="lead">每个集合点都写在时间轴里，用带「集合」字样的橙色行标出来。<b>规矩只有一条：集合时间 = 人到齐、车能开的时间，不是「差不多」的时间。</b>领队按这个表点人，不用再翻聊天记录。</p>
-
-  <table>
-    <tr><th class="num" style="width:88px">集合</th><th style="width:28%">在哪</th><th>之后干什么 · 为什么不能松</th></tr>
-    <tr><td class="num"><b>D1 08:55</b></td><td>酒店门口</td><td>清人、发冰爪和雨衣，09:00 发车</td></tr>
-    <tr><td class="num"><b>D1 11:30</b></td><td>白马寺停车场</td><td>11:35 发车去龙门镇</td></tr>
-    <tr><td class="num"><b>D1 16:50</b></td><td>龙门石窟停车场</td><td>16:55 发车去栾川——<b>这个点最不能松</b>，晚 10 分钟，到栾川就晚 10 分钟</td></tr>
-    <tr><td class="num"><b>D1 19:20</b></td><td>栾川酒店大堂</td><td>19:30 出发吃豆腐和山货</td></tr>
-    <tr><td class="num"><b>D2 08:50</b></td><td>栾川酒店门口</td><td>清装备（羽绒、冰爪、午饭、热水），09:00 发车</td></tr>
-    <tr><td class="num"><b>D2 14:45</b></td><td>金顶</td><td>一起下撤——<b>比原来晚了整整一小时</b>，把下午最好的光留在山顶</td></tr>
-    <tr><td class="num"><b>D2 16:00</b></td><td>索道下站停车场</td><td>还冰爪、换鞋，16:15 发车回洛阳</td></tr>
-    <tr><td class="num"><b>D2 19:00</b></td><td>洛阳酒店大堂</td><td>去水席——<b>人不到齐厨房不开火</b>，整桌菜一起上</td></tr>
-    <tr><td class="num"><b>D3 08:55</b></td><td>酒店门口</td><td>喝完汤集合，09:00 发车上邙山</td></tr>
-    <tr><td class="num"><b>D3 11:45</b></td><td>古墓博物馆出口</td><td>11:55 发车回老城</td></tr>
-    <tr><td class="num"><b>D3 18:30</b></td><td>酒店大堂</td><td>拿外套，打车去应天门</td></tr>
-    <tr><td class="num"><b>D3 20:40</b></td><td>应天门北广场</td><td><b>只在当晚有演出时启用</b>；没演出就 19:50 撤、20:20 到店</td></tr>
-  </table>
-
-  <h2>逐日时间轴</h2>
+  <p class="lead" style="margin-top:16px"><b>D0（抵达）和 D4（返程）两版完全一样</b>，中间三天才是要选的。<b>下面先给 D0，然后三个 tab：DAY 1 / DAY 2 / DAY 3</b>——每一格里把当天的两种走法都摆出来，同屏对比。</p>
 
   <div class="day">
     <div class="day-hd">
@@ -792,14 +665,20 @@
     </div>
   </div>
 
+  <div class="daytabs" role="tablist">
+    <button type="button" role="tab" data-day="1" aria-selected="true">DAY 1<small>11/13 周五 · 2 种走法</small></button>
+    <button type="button" role="tab" data-day="2" aria-selected="false">DAY 2<small>11/14 周六 · 2 种走法</small></button>
+    <button type="button" role="tab" data-day="3" aria-selected="false">DAY 3<small>11/15 周日 · 二选一</small></button>
+  </div>
+
+  <div class="dpane on" id="dp1">
+    <div class="vhd"><span class="vtag">方案 A</span>白马寺 + 龙门石窟 → 转场栾川<span class="hint">默认版 · 周五有雨时走这版</span></div>
+
   <div class="day">
     <div class="day-hd">
       <span class="no">DAY 1</span>
       <span class="tt">白马寺 → 龙门石窟 → 转场栾川</span>
       <span class="dd">11/13 周五 · 实测 198 km · 在车 3 h 09<br>08:45 起床 · 09:00 出发 · <b>19:05 到栾川</b></span>
-    </div>
-    <div class="call" style="margin:14px 0 18px">
-      <b>这一天有个前置判断：周五天气好不好。</b>下面是<b>默认版</b>（按预报，周五有雨）。<b>如果周四晚预报转好、周五早上金顶直播里能看到山脊</b>，就走 <b>Plan B</b>：白马寺压到 1 小时 20 分、下午上老君山、<b>17:40 看亮灯</b>、晚上照样住栾川（龙门顺延到周六上午）。触发条件和两版完整时刻表见「路线」里的 <b>Plan B · 周五看点灯</b>。<b>不满足条件就按下面这版走，不用改。</b>
     </div>
     <div class="tl">
       <div class="row"><div class="tm">08:45</div><div class="bd">起床 · 酒店早餐<span class="note">昨晚 23:40 才睡，<b>睡足 9 小时再起，不往前压</b>。汤已经从今天挪到周日早上（汤馆只开早上，但今天的时间一分都不能提前花）——今天就在酒店吃，或者楼下买个包子垫一口</span></div></div>
@@ -823,6 +702,52 @@
       <div class="row"><div class="tm">19:30</div><div class="bd">晚饭 · 栾川县城<span class="note"><b>这一顿值得认真点，栾川的吃和洛阳不是一个路子——洛阳是汤和面，栾川是豆腐和山货。</b><br>必点：<b>酸浆豆腐</b>（国家地理标志，山泉泡豆、酸浆点卤，嫩到筷子夹不住）、<b>山野菜炖腊肉</b>、<b>伏牛山菌炖鸡</b>或土鸡、<b>庙子炒牛肉</b>、<b>栾川刀削面</b>（先炒菜后下面，和山西的不是一回事）、<b>糊涂面</b>。<br>8 个人一桌 300–400 元能吃很扎实。<b>吃到 21:00 收，明天 08:00 起床</b>——今晚可以踏实吃，但别喝多，第二天要上山</span></div></div>
     </div>
   </div>
+
+    <div class="vhd"><span class="vtag g">方案 B</span>白马寺 → 下午上老君山 → 17:40 亮灯 → 住栾川<span class="hint">条件触发 · 三条都满足才走</span></div>
+  <div class="day">
+    <div class="day-hd">
+      <span class="no">DAY 1 · B</span>
+      <span class="tt">白马寺 → 上山 → 等亮灯 → 住栾川</span>
+      <span class="dd">11/13 周五 · 实测 221 km · 在车 3 h 44<br>08:45 起床 · 09:00 出发 · <b>17:40 亮灯</b> · 20:15 入住</span>
+    </div>
+    <div class="tl">
+      <div class="row"><div class="tm">08:45</div><div class="bd">起床 · 酒店早餐<span class="note">和 A 版一样，<b>不早起</b>。今天不用赶索道，早饭吃踏实</span></div></div>
+      <div class="row set"><div class="tm">08:55</div><div class="bd"><span class="tag">集合</span>酒店门口<span class="note">清点人数、确认门票和身份证。<b>今天行李要带上车</b>——晚上不回来了</span></div></div>
+      <div class="row"><div class="tm">09:00</div><div class="bd">发车 · 往白马寺<span class="note">21.2 km / 28 分钟 <b>+ 2 分钟容错</b></span></div></div>
+      <div class="row"><div class="tm">09:30</div><div class="bd">到白马寺停车场<span class="note">预留 10 分钟：停车、上厕所、8 个人进园</span></div></div>
+      <div class="row key"><div class="tm">09:40</div><div class="bd"><b>白马寺 · 1 小时 20 分</b><span class="note">¥35 · 中国第一座官办佛寺。<b>比 A 版少 30 分钟，所以走主线</b>：山门 → 天王殿 → 大雄殿（元代夹纻干漆造像）→ 千佛殿 → 齐云塔院。<b>这次跳过国际佛殿区</b>（泰国、印度、缅甸那三座），留到下次<br><b>⚠️ 大佛殿、接引殿自 2026-08-16 起封闭施工，动线绕开</b></span></div></div>
+      <div class="row"><div class="tm">10:30</div><div class="bd"><b>银杏在这儿</b><span class="note">大雄殿前两株 + 齐云塔院塔前几株，11 月中旬正是窗口。<b>拍完就往回走</b>——今天的时间卡在亮灯上</span></div></div>
+      <div class="row set"><div class="tm">11:00</div><div class="bd"><span class="tag">集合</span>白马寺停车场<span class="note"><b>11:10 发车</b>。这一班车决定能不能赶上亮灯，别松</span></div></div>
+      <div class="row"><div class="tm">11:10</div><div class="bd">发车 → 栾川县城<span class="note"><b>175.9 km / 2 小时 16 + 8 分钟容错</b> · 过路费 83 元。二广高速 → 宁洛 → 洛栾，隧道多</span></div></div>
+      <div class="row key"><div class="tm">13:35</div><div class="bd"><b>午饭 · 栾川县城 · 1 小时 15 分</b><span class="note">酸浆豆腐 / 山野菜炖腊肉 / 伏牛山菌炖鸡。<b>提前给饭馆打电话说清楚「13:35 到、14:50 要走」</b>，让厨房先把菜备上——<b>这一顿压到 1 小时 15 分，是为了亮灯</b></span></div></div>
+      <div class="row"><div class="tm">14:50</div><div class="bd">发车 → 云景索道下站<span class="note">11.7 km / 22 分钟 <b>+ 3 分钟容错</b>。导航搜「老君山云景索道」，别搜「老君山景区」</span></div></div>
+      <div class="row"><div class="tm">15:15</div><div class="bd">到下站停车场<span class="note">预留 25 分钟：停车、厕所、换票、发冰爪、穿羽绒</span></div></div>
+      <div class="row key"><div class="tm">15:40</div><div class="bd"><b>一级索道 · 云景 · 往返 ¥130</b><span class="note"><b>下午上山基本不用排队</b>——团队客上午就上完了，这正是这一版的好处。<br>云景队离谱就换<b>中灵</b>：两条票通用，不用退换</span></div></div>
+      <div class="row"><div class="tm">16:10</div><div class="bd">中天门 1800 m<span class="note"><b>直接换乘，不吃饭</b>（山下刚吃过）。热水在这儿灌满——中天门以上没有免费开水</span></div></div>
+      <div class="row"><div class="tm">16:25</div><div class="bd">峰林索道 · 二级 · 往返 ¥80<span class="note">8 分钟到十里画屏入口</span></div></div>
+      <div class="row"><div class="tm">16:40</div><div class="bd">十里画屏 · 40 分钟<span class="note">A 版是 50 分钟，这里压 10 分钟。<b>下午的斜光让红叶更透</b>，但这 40 分钟是为亮灯让路的</span></div></div>
+      <div class="row"><div class="tm">17:20</div><div class="bd">马鬃岭 2217 m · 10 分钟<span class="note"><b>别久留，风大</b>。拍完山脊线就走</span></div></div>
+      <div class="row"><div class="tm">17:30</div><div class="bd">金顶道观群 · <b>占好位置</b><span class="note">亮灯前 10 分钟到位。<b>玉皇顶的台阶上视野最好</b>，金瓦一圈圈亮起来时，站高处才能看全</span></div></div>
+      <div class="row key"><div class="tm">17:40</div><div class="bd"><b>亮灯 · 45 分钟</b><span class="note"><b>冬季亮灯约 17:40–18:20</b>，随日落前后浮动 10–15 分钟（11 月中旬洛阳日落约 17:25）。金瓦亮起来 + 蓝调的天，<b>这是这一版唯一多拿到的东西，也是全天最值钱的 45 分钟</b></span></div></div>
+      <div class="row set"><div class="tm">18:25</div><div class="bd"><span class="tag">集合</span>金顶 · 下撤<span class="note"><b>这时候天已经黑了，头灯或手机手电必须开。</b>金顶 → 峰林索道 25 分钟台阶，<b>山上没有路灯</b>。8 个人走成一队，前后各一个</span></div></div>
+      <div class="row"><div class="tm">18:50</div><div class="bd">峰林索道上站 · 下行 8 分钟<span class="note">19:00 到中天门</span></div></div>
+      <div class="row"><div class="tm">19:10</div><div class="bd">云景索道下行 · 22 分钟<span class="note"><b>官方口径：一级索道春冬季运行 7:00–20:30，15:30 只停「上行」。</b>我们 19:10 上车，比末班早 1 小时 20 分</span></div></div>
+      <div class="row"><div class="tm">19:35</div><div class="bd">到停车场<span class="note">还冰爪、换鞋、上厕所。19:45 发车回县城</span></div></div>
+      <div class="row"><div class="tm">20:15</div><div class="bd">栾川县城 · 入住<span class="note"><b>和 A 版是同一家酒店，不用改订单</b>。办入住 15 分钟</span></div></div>
+      <div class="row"><div class="tm">20:30</div><div class="bd">晚饭 · 栾川县城 · 1 小时 15 分<span class="note">比 A 版晚 1 小时，<b>但周五晚上不赶，可以慢慢吃</b>。酸浆豆腐、庙子炒牛肉、栾川刀削面</span></div></div>
+    </div>
+  </div>
+    <div class="call" style="margin:16px 0 4px">
+      <b>走 B 版必须盯住的四件事：</b><br>
+      ① <b>带头灯，或者保证手机有电</b>——17:25 就日落，18:25 下撤时金顶到峰林索道那 25 分钟台阶是全黑的，山上没有路灯；<br>
+      ② <b>下午风大，云景索道可能临时停运</b>——<b>一级索道中灵和云景票是通用的</b>，云景停了直接去中灵，别在原地看着队伍发呆；<br>
+      ③ <b>亮灯时间是「约」17:40</b>，随日落前后浮动 10–15 分钟，<b>17:30 就到金顶等着</b>，别掐着点往上走；<br>
+      ④ <b>山上零下、夜间风 5–7 级</b>——等灯那 45 分钟比白天冷一档，羽绒、帽子、手套全穿上，<b>暖宝宝每人两片</b>。
+    </div>
+  </div>
+
+  <div class="dpane" id="dp2">
+    <div class="vhd"><span class="vtag">方案 A</span>老君山全天 → 回洛阳 → 水席<span class="hint">默认版 · 把唯一的晴天整天给山</span></div>
 
   <div class="day">
     <div class="day-hd">
@@ -854,14 +779,41 @@
     </div>
   </div>
 
+    <div class="vhd"><span class="vtag g">方案 B</span>栾川 → 龙门石窟（上午顺光）→ 回洛阳 → 水席<span class="hint">条件触发 · 跟着 D1 的 B 版走</span></div>
+  <div class="day">
+    <div class="day-hd">
+      <span class="no">DAY 2 · B</span>
+      <span class="tt">栾川 → 龙门石窟 → 回洛阳 → 水席</span>
+      <span class="dd">11/14 周六 · 实测 162 km · 在车 2 h 42<br>08:00 起床 · 09:00 出发 · <b>11:25 进园</b> · 20:15 回店</span>
+    </div>
+    <div class="tl">
+      <div class="row"><div class="tm">08:00</div><div class="bd">起床 · 县城早餐<span class="note">昨晚 21:45 才吃完，睡够 7 小时。<b>今天回洛阳，行李全部带上车</b></span></div></div>
+      <div class="row set"><div class="tm">08:50</div><div class="bd"><span class="tag">集合</span>酒店门口<span class="note">退房、行李上车、清一遍房间。<b>今天不再回来</b></span></div></div>
+      <div class="row"><div class="tm">09:00</div><div class="bd">发车 → 龙门石窟<span class="note"><b>147.2 km / 2 小时 04 + 8 分钟容错</b> · 过路费 63 元。<b>比回老城还近 3 km</b>——龙门在洛阳西南，和栾川同一个方向，所以不用先进城</span></div></div>
+      <div class="row"><div class="tm">11:12</div><div class="bd">到龙门石窟西北服务区<span class="note">预留 10 分钟：停车、厕所、8 个人进园</span></div></div>
+      <div class="row key"><div class="tm">11:25</div><div class="bd"><b>龙门石窟 · 2 小时 55 分</b><span class="note">¥90 · 世界文化遗产。<b>进园先直奔奉先寺，别在门口磨</b>——上午的顺光只剩不到一小时<br><b>⚠️ 11/1 起停夜游，17:00 停止检票、18:00 清场</b>，我们下午 2 点就走，不受影响</span></div></div>
+      <div class="row key"><div class="tm">12:05</div><div class="bd"><b>奉先寺 · 卢舍那大佛</b><span class="note">高 17.14 米，<b>正面朝东，上午是顺光，脸是亮的</b>；13:00 之后转侧逆光、15:00 后完全背光。<b>这一版在光照上比 A 版强</b>（A 版 14:35 到，已经是侧逆光）</span></div></div>
+      <div class="row"><div class="tm">12:35</div><div class="bd">回头补西山<span class="note">万佛洞、莲花洞、古阳洞，从奉先寺往回走，边看边退</span></div></div>
+      <div class="row"><div class="tm">13:40</div><div class="bd">过伊河桥 · 东山回望<span class="note">礼佛台是龙门最经典的机位，整面西山崖壁一字排开。<b>这个机位全天都能拍</b>，不受光照限制</span></div></div>
+      <div class="row set"><div class="tm">14:20</div><div class="bd"><span class="tag">集合</span>龙门石窟停车场<span class="note">礼佛台走到龙门桥出口 15 分钟 + 出口到停车场 10 分钟，<b>8 个人出园按 40 分钟给</b></span></div></div>
+      <div class="row key"><div class="tm">14:30</div><div class="bd"><b>午饭 · 龙门镇 · 1 小时 30 分</b><span class="note">景区门口一条街：浆面条、烫面角、蒜泥白肉。<b>这是今天唯一一顿正餐，给足 1.5 小时</b></span></div></div>
+      <div class="row"><div class="tm">16:00</div><div class="bd">发车 → 洛阳老城<span class="note">15 km / 30 分钟</span></div></div>
+      <div class="row"><div class="tm">16:35</div><div class="bd">到老城 · 卸行李、休整<span class="note"><b>这天空出将近两小时，A 版是没有的</b>——可以睡一觉、洗个澡，或者去十字街慢慢逛。<b>别小看这段，前一晚 21:45 才吃完晚饭</b></span></div></div>
+      <div class="row set"><div class="tm">18:30</div><div class="bd"><span class="tag">集合</span>酒店大堂<span class="note">步行去饭馆 5–10 分钟。<b>水席人不到齐厨房不开火</b>，这个集合点不能松</span></div></div>
+      <div class="row key"><div class="tm">18:45</div><div class="bd"><b>洛阳水席 · 24 道 · 1 小时 30 分</b><span class="note">真不同 / 建坤 / 杏花村。8 个人点一桌「三八席」就够：前八凉、中八热、后八汤。<br><b>比 A 版早 30 分钟</b>（A 版 19:15）——因为今天下午回得早。<b>订位时说 18:45 到</b></span></div></div>
+      <div class="row"><div class="tm">20:15</div><div class="bd">回酒店<span class="note">老城酒店步行 10 分钟内。<b>今晚不安排夜市</b>，明天还有一整天</span></div></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="dpane" id="dp3">
+    <div class="vhd"><span class="vtag">博物馆版</span>古墓博物馆 + 大运河 → 应天门<span class="hint">雨天最优 · 两个免费馆接住洛博闭馆</span></div>
+
   <div class="day">
     <div class="day-hd">
       <span class="no">DAY 3</span>
       <span class="tt">古墓博物馆 → 老城美食 → 大运河 → 应天门</span>
       <span class="dd">11/15 周日 · 实测 36 km · 在车 1 h 08<br>08:10 起床 · 09:00 出发 · <b>09:30 进馆</b> · 21:00 回店</span>
-    </div>
-    <div class="call" style="margin:14px 0 18px">
-      <b>这一天有两个版本，出发前定一个。</b>下面是<b>博物馆版</b>（默认，雨天最优）。<b>如果全队想补嵩山少林</b>，换成<b>少林版</b>：08:30 出发、少林景区 4 小时 20 分、20:40 回店，<b>代价是砍掉古墓博物馆和大运河</b>。两版对比与少林版逐时时刻表见「路线」里的 <b>D3 二选一</b>。
     </div>
     <div class="tl">
       <div class="row key"><div class="tm">08:30</div><div class="bd"><b>喝汤 · 洛阳人的早饭</b><span class="note">牛肉汤 / 羊肉汤 / 驴肉汤 / 豆腐汤。<b>好汤 6 点开锅、9 点后开始淡、中午就关门</b>，所以只能排早上。<br><b>这一顿从 D1 挪到了今天：</b>放 D1 就得 08:00 起床（你否了），放今天只多花 20 分钟，而且前一晚睡得早。<b>住老城就是为这一顿——出门步行 5–10 分钟就有，看哪家门口排队就进哪家</b>。加汤不加钱，配饼丝或锅盔泡着吃。8 个人分两三家坐</span></div></div>
@@ -885,6 +837,36 @@
       <div class="row set"><div class="tm">20:40</div><div class="bd"><span class="tag">集合</span>应天门北广场<span class="note"><b>这个点只在「当晚有演出」时启用</b>：20:30 那场看完正好 20:40 集合。<b>没有演出的，19:50 就撤，20:20 到酒店</b>——别让一半人等另一半</span></div></div>
       <div class="row"><div class="tm">21:00</div><div class="bd">回酒店 · <b>收行李</b><span class="note"><b>今晚必须把行李收好</b>，明天 04:45 起、05:25 走，没有时间找东西。<b>顺口跟酒店前台说一声明早 05:00 要两辆车</b>（周一 90% 下雨，现叫会慢）</span></div></div>
     </div>
+  </div>
+
+    <div class="vhd"><span class="vtag g">少林版</span>少林寺 + 塔林 → 回洛阳 → 应天门<span class="hint">想补嵩山少林就走这版 · 代价是砍掉两个馆</span></div>
+  <div class="day">
+    <div class="day-hd">
+      <span class="no">DAY 3 · 少林</span>
+      <span class="tt">少林寺 → 塔林 → 回洛阳 → 应天门</span>
+      <span class="dd">11/15 周日 · 实测 130 km · 在车 3 h 44<br>07:30 起床 · 08:30 出发 · <b>11:00 武术表演</b> · 20:40 回店</span>
+    </div>
+    <div class="tl">
+      <div class="row"><div class="tm">07:30</div><div class="bd">起床 · 酒店早饭<span class="note">比博物馆版早 40 分钟。<b>行李不用动，晚上还回这家</b></span></div></div>
+      <div class="row set"><div class="tm">08:25</div><div class="bd"><span class="tag">集合</span>酒店门口<span class="note"><b>带身份证</b>——少林景区要刷证进</span></div></div>
+      <div class="row"><div class="tm">08:30</div><div class="bd">发车 → 登封<span class="note"><b>60.2 km / 1 小时 33 + 8 分钟容错</b>。走 G310 国道，<b>31 个红绿灯</b>，无过路费。<b>少林寺在郑州登封，这是跨市</b></span></div></div>
+      <div class="row"><div class="tm">10:10</div><div class="bd">到少林停车场<span class="note">预留 15 分钟：停车、厕所、换票、8 个人验身份证</span></div></div>
+      <div class="row key"><div class="tm">10:25</div><div class="bd"><b>少林景区 · 4 小时 20 分</b><span class="note">¥80（含常住院、塔林、初祖庵）。<b>动线：武术表演 → 常住院 → 午饭 → 塔林 → 银杏</b>，顺序别换</span></div></div>
+      <div class="row key"><div class="tm">11:00</div><div class="bd"><b>武术表演 · 30 分钟</b><span class="note"><b>先看这个，别先逛。</b>演武厅按场次开（整点为主，每天不同）——<b>错过就得等下一场，正好把后面的全挤掉</b>。出发前查当天场次表，这一天整个是围着 11:00 这一场排的</span></div></div>
+      <div class="row"><div class="tm">11:40</div><div class="bd">常住院 · 1 小时<span class="note">天王殿 → 大雄宝殿 → 藏经阁 → 方丈室 → 立雪亭 → 千佛殿。<b>千佛殿的明代壁画和地上那 48 个脚坑是硬货</b>——武僧练功踩出来的</span></div></div>
+      <div class="row"><div class="tm">12:40</div><div class="bd">午饭 · 少林素斋 · 40 分钟<span class="note">园内吃，省一趟进出。<b>这顿吃轻的</b>——晚上回洛阳还有一顿</span></div></div>
+      <div class="row"><div class="tm">13:20</div><div class="bd">塔林 · 40 分钟<span class="note">240 余座，唐到清的历代高僧墓塔，<b>中国现存最大塔林</b>。不用讲解也看得出朝代——<b>塔的层数和形状就是朝代</b></span></div></div>
+      <div class="row"><div class="tm">14:00</div><div class="bd">银杏 · 15 分钟<span class="note">天王殿前那棵 1500 年古银杏。<b>11/15 还在不在，要看 11/13 那场雨</b>——雨大就会被打落一半</span></div></div>
+      <div class="row set"><div class="tm">14:45</div><div class="bd"><span class="tag">集合</span>景区出口<span class="note">走回停车场留 40 分钟（8 人缓冲）</span></div></div>
+      <div class="row"><div class="tm">15:25</div><div class="bd">发车 · 回洛阳<span class="note">60.2 km / 1 小时 33 + 8</span></div></div>
+      <div class="row"><div class="tm">17:05</div><div class="bd">到老城 · 休整 55 分钟<span class="note">回酒店洗把脸。<b>这一小时是这天唯一的缓冲，别拿去安排别的事</b></span></div></div>
+      <div class="row set"><div class="tm">18:00</div><div class="bd"><span class="tag">集合</span>酒店大堂<span class="note">去吃晚饭</span></div></div>
+      <div class="row key"><div class="tm">18:10</div><div class="bd"><b>晚饭 · 老城 · 1 小时 30 分</b><span class="note"><b>不吃水席</b>（水席 D2 已经吃过），这天吃不翻汤或浆面条，<b>吃轻一点</b>——明天 04:45 起</span></div></div>
+      <div class="row"><div class="tm">19:40</div><div class="bd">打车 → 应天门<span class="note">4.8 km / 11 分钟，8 个人两辆车</span></div></div>
+      <div class="row"><div class="tm">20:00</div><div class="bd">应天门 · 城楼看中轴线 · 40 分钟<span class="note">¥58。比博物馆版晚 1 小时，<b>所以只上城楼看中轴线，不等演出</b></span></div></div>
+      <div class="row"><div class="tm">20:40</div><div class="bd">回酒店 · <b>收行李</b><span class="note">明天 <b>04:45 起、05:25 走</b>。<b>今晚必须把行李收好</b>，顺口跟前台说明早 05:00 要两辆车</span></div></div>
+    </div>
+  </div>
   </div>
 
   <div class="day">
@@ -1318,6 +1300,28 @@
     var id = (location.hash || '').replace('#', '');
     if (id) { show(id, {scroll:true}); }
   });
+})();
+
+/* 天级 tab：DAY 1 / DAY 2 / DAY 3 */
+(function(){
+  var btns = [].slice.call(document.querySelectorAll('.daytabs button'));
+  var panes = [].slice.call(document.querySelectorAll('.dpane'));
+  if(!btns.length) return;
+  function show(n){
+    btns.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.day === n ? 'true' : 'false'); });
+    panes.forEach(function(p){ p.classList.toggle('on', p.id === 'dp' + n); });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      show(b.dataset.day);
+      var bar = document.querySelector('.daytabs');
+      if(bar){
+        var y = Math.round(bar.getBoundingClientRect().top + window.pageYOffset) - 58;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
+    });
+  });
+  show('1');
 })();
 </script>
 </body>

@@ -231,10 +231,27 @@
   .daytabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
   .daytabs button[aria-selected="true"] small{color:#c08a70}
   .dpane{display:none}
-  .dpane.on{display:block}
+  .dpane.on{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  .vcol{min-width:0}
+  .dpane > .call{grid-column:1 / -1}
   .vhd{font-size:13px;font-weight:700;margin:26px 0 11px;line-height:1.55;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
   .vhd .hint{font-weight:400;font-size:11.5px;color:var(--ink3)}
-  .dpane > .vhd:first-child{margin-top:20px}
+  .vcol > .vhd:first-child{margin-top:24px}
+  /* 两栏里的日卡：标题栏改为换行排布，行距收紧 */
+  .dpane .day-hd{flex-wrap:wrap;gap:7px 10px;padding:13px 16px}
+  .dpane .day-hd .no{flex:0 0 auto;white-space:nowrap}
+  .dpane .day-hd .tt{flex:1 1 auto;min-width:0;font-size:14.5px}
+  .dpane .day-hd .dd{flex:1 1 100%;margin-left:0;text-align:left;font-size:11.5px;line-height:1.55}
+  .dpane .row{grid-template-columns:58px 1fr;gap:11px;padding:8px 0}
+  .dpane .row .bd{font-size:13.5px}
+  @media(min-width:1200px){
+    .pvc,.daytabs,.dpane.on{width:calc(100% + 240px);margin-left:-120px}
+    .dpane.on{gap:26px}
+  }
+  @media(max-width:1080px){
+    .dpane.on{grid-template-columns:1fr;gap:2px}
+    .vcol > .vhd:first-child{margin-top:22px}
+  }
   @media(max-width:640px){
     .pvc .two{grid-template-columns:1fr;gap:15px}
     .pvc{padding:15px 15px 13px}
@@ -325,7 +342,7 @@
       <i>老君山 2217 m</i>
       <i>古墓博物馆</i>
       <i>应天门夜景</i>
-      <i class="ver">v11-10d · 三日 tab 版</i>
+      <i class="ver">v11-10e · 两栏对照版</i>
     </div>
   </div>
 
@@ -674,6 +691,7 @@
   </div>
 
   <div class="dpane on" id="dp1">
+    <div class="vcol">
     <div class="vhd"><span class="vtag">方案 A</span>白马寺 + 龙门石窟 → 转场栾川<span class="hint">默认版 · 周五有雨时走这版</span></div>
 
   <div class="day">
@@ -705,6 +723,8 @@
     </div>
   </div>
 
+    </div>
+    <div class="vcol">
     <div class="vhd"><span class="vtag g">方案 B</span>白马寺 → 下午上老君山 → 17:40 亮灯 → 住栾川<span class="hint">条件触发 · 三条都满足才走</span></div>
   <div class="day">
     <div class="day-hd">
@@ -739,6 +759,7 @@
       <div class="row"><div class="tm">20:30</div><div class="bd">晚饭 · 栾川县城 · 1 小时 15 分<span class="note">比 A 版晚 1 小时，<b>但周五晚上不赶，可以慢慢吃</b>。酸浆豆腐、庙子炒牛肉、栾川刀削面</span></div></div>
     </div>
   </div>
+    </div>
     <div class="call" style="margin:16px 0 4px">
       <b>走 B 版必须盯住的四件事：</b><br>
       ① <b>带头灯，或者保证手机有电</b>——17:25 就日落，18:25 下撤时金顶到峰林索道那 25 分钟台阶是全黑的，山上没有路灯；<br>
@@ -749,6 +770,7 @@
   </div>
 
   <div class="dpane" id="dp2">
+    <div class="vcol">
     <div class="vhd"><span class="vtag">方案 A</span>老君山全天 → 回洛阳 → 水席<span class="hint">默认版 · 把唯一的晴天整天给山</span></div>
 
   <div class="day">
@@ -781,6 +803,8 @@
     </div>
   </div>
 
+    </div>
+    <div class="vcol">
     <div class="vhd"><span class="vtag g">方案 B</span>栾川 → 龙门石窟（上午顺光）→ 回洛阳 → 水席<span class="hint">条件触发 · 跟着 D1 的 B 版走</span></div>
   <div class="day">
     <div class="day-hd">
@@ -807,8 +831,10 @@
     </div>
   </div>
   </div>
+  </div>
 
   <div class="dpane" id="dp3">
+    <div class="vcol">
     <div class="vhd"><span class="vtag">博物馆版</span>古墓博物馆 + 大运河 → 应天门<span class="hint">雨天最优 · 两个免费馆接住洛博闭馆</span></div>
 
   <div class="day">
@@ -841,6 +867,8 @@
     </div>
   </div>
 
+    </div>
+    <div class="vcol">
     <div class="vhd"><span class="vtag g">少林版</span>少林寺 + 塔林 → 回洛阳 → 应天门<span class="hint">想补嵩山少林就走这版 · 代价是砍掉两个馆</span></div>
   <div class="day">
     <div class="day-hd">
@@ -868,6 +896,7 @@
       <div class="row"><div class="tm">20:00</div><div class="bd">应天门 · 城楼看中轴线 · 40 分钟<span class="note">¥58。比博物馆版晚 1 小时，<b>所以只上城楼看中轴线，不等演出</b></span></div></div>
       <div class="row"><div class="tm">20:40</div><div class="bd">回酒店 · <b>收行李</b><span class="note">明天 <b>04:45 起、05:25 走</b>。<b>今晚必须把行李收好</b>，顺口跟前台说明早 05:00 要两辆车</span></div></div>
     </div>
+  </div>
   </div>
   </div>
 
